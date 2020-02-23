@@ -1,0 +1,22 @@
+# My global snippets
+global !p
+endglobal
+
+# My Golang snippets
+snippet pkg "Package definition" b
+package	${1:main}
+endsnippet
+
+snippet dfn "function definition" b
+func ${1:myfunc} ($2) ($3) {
+    $4
+}
+endsnippet
+
+# if inline error
+snippet iferr "If with inline error" 
+if err := ${1:${VISUAL}}; err != nil {
+	${2:return err}
+}
+endsnippet
+	
