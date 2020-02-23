@@ -12,12 +12,13 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'sainnhe/edge'
 Plug 'mhinz/vim-startify'
 Plug 'scrooloose/nerdcommenter'
+Plug 'mattn/emmet-vim'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 " Set Leader
 let g:mapleader="\\"
 nmap z \
-imap z \
 tmap z \
 
 " Defaults
@@ -32,6 +33,16 @@ set cmdheight=4
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+" Auto brackets and quotes
+inoremap ( ()<Esc>i
+inoremap { {}<Esc>i
+inoremap [ []<Esc>i
+inoremap " ""<Esc>i
+inoremap ' ''<Esc>i
 
 " disable vim-go :GoDef short cut (gd), this is handled by LanguageClient [LC]
 let g:go_def_mapping_enabled = 0
@@ -115,8 +126,8 @@ tnoremap <Esc> <C-\><C-n>
 map <C-n> :NERDTreeToggle<CR>
 
 " Config
-nnoremap <leader>rv :source ~/.config/nvim/init.vim<CR>
-nnoremap <leader>ev :e ~/.config/nvim/init.vim<CR>
+nnoremap <leader>vr :source ~/.config/nvim/init.vim<CR>
+nnoremap <leader>ve :e ~/.config/nvim/init.vim<CR>
 
 " Colors
 set background=dark
@@ -126,6 +137,22 @@ let g:one_allow_italics = 1
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='papercolor'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+
+" Buffers
+nnoremap <silent><leader>bd :bd<CR>
+nnoremap <silent><leader>bh :bprevious<CR>
+nnoremap <silent><leader>bl :bnext<CR>
+nnoremap <silent><leader>b1 :b1<CR>
+nnoremap <silent><leader>b2 :b2<CR>
+nnoremap <silent><leader>b3 :b3<CR>
+nnoremap <silent><leader>b4 :b4<CR>
+nnoremap <silent><leader>b5 :b5<CR>
+nnoremap <silent><leader>b6 :b6<CR>
+nnoremap <silent><leader>b7 :b7<CR>
+nnoremap <silent><leader>b8 :b8<CR>
+nnoremap <silent><leader>b9 :b9<CR>
 
 " Nerd Commenter
 " Add spaces after comment delimiters by default
@@ -151,3 +178,11 @@ let g:NERDTrimTrailingWhitespace = 1
 
 " Enable NERDCommenterToggle to check all selected lines is commented or not 
 let g:NERDToggleCheckAllLines = 1
+
+" Go specific
+let g:go_fmt_command = "goimports"
+
+nnoremap <leader>gr :GoRun<CR>
+nnoremap <leader>gb :GoBuild<CR>
+nnoremap <leader>gt :GoTesv<CR>
+
